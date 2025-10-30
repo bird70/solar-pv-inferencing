@@ -1,0 +1,11 @@
+# ultralytics>=8.0
+# Replace ultralytics with inference
+inference 
+rasterio
+geopandas
+shapely
+boto3
+tqdm
+psycopg2-binary
+s3fs
+fsspec

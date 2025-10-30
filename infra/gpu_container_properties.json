@@ -1,0 +1,35 @@
+{
+  "image": "your-ecr-repo-url/image:latest",
+  "vcpus": 4,
+  "memory": 8192,
+  "resourceRequirements": [
+    {
+      "value": "1",
+      "type": "GPU"
+    }
+  ],
+  "command": [
+    "python3",
+    "inference.py"
+  ],
+  "jobRoleArn": "arn:aws:iam::123456789012:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::123456789012:role/ecsTaskExecutionRole",
+  "environment": [
+    {
+      "name": "S3_BUCKET",
+      "value": "your-s3-bucket-name"
+    },
+    {
+      "name": "MODEL_PATH",
+      "value": "/models/solar_model.pt"
+    }
+  ],
+  "logConfiguration": {
+    "logDriver": "awslogs",
+    "options": {
+      "awslogs-group": "/aws/batch/job",
+      "awslogs-region": "us-west-2",
+      "awslogs-stream-prefix": "batch"
+    }
+  }
+}
