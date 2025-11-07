@@ -42,3 +42,8 @@ variable "roboflow_api_key" {
   default     = ""
   sensitive   = true
 }
+variable "instance_types" {
+  description = "EC2 instance types for batch compute environment"
+  type        = list(string)
+  default     = ["g4dn.xlarge", "g4dn.2xlarge", "g5.xlarge", "p2.xlarge", "c5.2xlarge", "m5.2xlarge"]
+}

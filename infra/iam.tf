@@ -31,7 +31,8 @@ resource "aws_iam_role_policy" "batch_ecs_policy" {
         Action = [
           "ecs:DescribeClusters",
           "ecs:CreateCluster",
-          "ecs:DeleteCluster"
+          "ecs:DeleteCluster",
+          "ecs:ListClusters"
         ]
         Resource = "*"
       }
@@ -84,6 +85,18 @@ resource "aws_iam_role_policy" "ssm_policy" {
         ]
         Resource = [
           "${aws_cloudwatch_log_group.batch_logs.arn}:*"
+        ]
+      },
+      {
+        Effect = "Allow"
+        Action = [
+          "s3:ListBucket",
+          "s3:GetObject",
+          "s3:PutObject"
+        ]
+        Resource = [
+          "arn:aws:s3:::${var.s3_bucket_name}",
+          "arn:aws:s3:::${var.s3_bucket_name}/*"
         ]
       }
     ]

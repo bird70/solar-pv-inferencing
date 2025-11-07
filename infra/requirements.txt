@@ -1,6 +1,7 @@
 # ultralytics>=8.0
 # Replace ultralytics with inference
-inference 
+inference
+requests
 rasterio
 geopandas
 shapely
