@@ -15,4 +15,5 @@ tqdm
 psycopg2-binary
 s3fs
 fsspec
+setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
 aiohttp>=3.9.0 # not directly required; minimum version constrained by Snyk to avoid a vulnerability
